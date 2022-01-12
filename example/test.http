@@ -1,0 +1,24 @@
+@hostname = localhost
+@port = 8062
+@host = http://{{hostname}}:{{port}}
+###
+GET /
+###
+GET /?time=10&age=30
+
+###
+POST /
+
+###
+POST /
+{
+    "username": "",
+    "password": "a too simple password",
+    "address": {
+        "primary": "France",
+        "secondary": "Italy"
+    }
+}
+
+###
+GET /ping
