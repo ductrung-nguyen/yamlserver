@@ -7,19 +7,26 @@ With this application, you can easily mock the result of the HTTP requests based
 
 Firstly, you need to prepare the configuration file in YAML format.
 
-## Without docker
-After cloning the repository, build this application with
+## With pre-built docker image from Dockerhub
 ```bash
-go build
-./yamlserver --config <path_to_config.yaml>
+# docker run -v <path_to_config.yaml>:/config.yaml -p 8062:8062 ductrungnguyen/yamlserver:1.0
+docker run -v `pwd`/example/config.yaml:/config.yaml -p 8062:8062 ductrungnguyen/yamlserver:1.0
 ```
 
 ## With docker
 After cloning the repository, run:
 ```bash
 docker build -t yamlserver .
+# docker run -v <path_to_config.yaml>:/config.yaml -p 8062:8062 yamlserver
 docker run -v `pwd`/example/config.yaml:/config.yaml -p 8062:8062 yamlserver
 # a server will be run at port 8062
+```
+
+## Without docker
+After cloning the repository, build this application with
+```bash
+go build
+./yamlserver --config <path_to_config.yaml>
 ```
 
 This is an example of config file:

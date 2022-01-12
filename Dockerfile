@@ -14,6 +14,6 @@ COPY ./main.go .
 RUN CGO_ENABLED=0 go build -tags=jsoniter
 
 FROM dockerhub.rnd.amadeus.net:5002/alpine:3.15 as production
-COPY --from=builder /go/src/app/mockserver .
+COPY --from=builder /go/src/app/yamlserver .
 
-CMD ["./mockserver"]
+CMD ["./yamlserver"]
