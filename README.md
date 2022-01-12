@@ -1,9 +1,42 @@
-The purpose of this simple application is mocking a simple HTTP server with a YAML file.
-In many cases such as developing front-end or client application, we want to mock the backend or api server.
+Start a full fake REST API with zero coding in less than 30 seconds with a simple YAML file.
 
 With this application, you can easily mock the result of the HTTP requests based on some conditions if needed.
 
-# How to use this application
+# Getting started
+Create file `config.yaml` with this content to define a single endpoint with two scenarios:
+```yaml
+server:
+  host:
+  port: 8062
+
+endpoints:
+  - path: /
+    method: "GET"
+    results:
+      - when:
+          query:
+            time: 10
+            age: 30
+        response:
+          returnCode: 200
+          returnObject:
+            - "item 1"
+            - "item 2"
+      - response: # no condition == default return
+          returnCode: 200
+          returnObject:
+            data1: this is data1
+            data2: this is data2
+```
+
+Start the server with
+```bash
+docker run -v `pwd`/config.yaml:/config.yaml -p 8062:8062 ductrungnguyen/yamlserver:1.0
+```
+
+Done! The server is started at port `8062` and ready to use.
+
+# Different ways to use this application
 
 Firstly, you need to prepare the configuration file in YAML format.
 
