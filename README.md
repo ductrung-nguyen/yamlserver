@@ -23,6 +23,7 @@ endpoints:
             - "item 1"
             - "item 2"
       - response: # no condition == default return
+          returnFormat: xml
           returnCode: 200
           returnObject:
             data1: this is data1
@@ -84,6 +85,7 @@ endpoints:
             time: 10
             age: 30
         response:
+          returnFormat: json # default option
           returnCode: 200
           returnObject:
             - "item 1"
@@ -95,6 +97,7 @@ endpoints:
             data2: this is data2
       - when:  # Same as above, but it's nerver reach here because the above item matched
         response: # no condition == default return
+          returnFormat: xml
           returnCode: 200
           returnObject:
             data1: this is data1
@@ -127,6 +130,8 @@ With this configuration, we define three endpoints:
 
 Currently, we support to set the constraints on `header`, `query` and `payload`.
 With a given HTTP request, the application scans through **all** endpoints, compare the request information to the constraint of each endpoint and each scenario to find the **first** match.
+
+Many different formats of the response are supported: `json` (default), `yaml`, `xml`, `jsonp`, `protobuf`, `asciijson`, `indentedjson`.
 
 
 # To build image
