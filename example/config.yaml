@@ -18,6 +18,7 @@ endpoints:
             time: 10
             age: 30
         response:
+          returnFormat: json # default option
           returnCode: 200
           returnObject:
             - "item 1"

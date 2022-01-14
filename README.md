@@ -31,7 +31,7 @@ endpoints:
 
 Start the server with
 ```bash
-docker run -v `pwd`/config.yaml:/config.yaml -p 8062:8062 ductrungnguyen/yamlserver:1.0
+docker run -v `pwd`/config.yaml:/config.yaml -p 8062:8062 ductrungnguyen/yamlserver:1.1
 ```
 
 Done! The server is started at port `8062` and ready to use.
@@ -42,8 +42,8 @@ Firstly, you need to prepare the configuration file in YAML format.
 
 ## With pre-built docker image from Dockerhub
 ```bash
-# docker run -v <path_to_config.yaml>:/config.yaml -p 8062:8062 ductrungnguyen/yamlserver:1.0
-docker run -v `pwd`/example/config.yaml:/config.yaml -p 8062:8062 ductrungnguyen/yamlserver:1.0
+# docker run -v <path_to_config.yaml>:/config.yaml -p 8062:8062 ductrungnguyen/yamlserver:1.1
+docker run -v `pwd`/example/config.yaml:/config.yaml -p 8062:8062 ductrungnguyen/yamlserver:1.1
 ```
 
 ## With docker
